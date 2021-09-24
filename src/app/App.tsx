@@ -1,5 +1,6 @@
-import React, {useEffect} from 'react'
+import React, {useContext, useEffect} from 'react'
 import './App.css'
+import {context} from '../index'
 import {
     AppBar,
     Button,
@@ -19,12 +20,13 @@ import {Login} from "../features/Login/Login";
 import {Route, Switch, Redirect} from "react-router-dom";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {logout} from "../features/Login/auth-reducer";
+import {Label} from "../components/test/Label";
 
 type PropsType = {
     demo?: boolean
 }
 
-function App({demo = false}: PropsType) {
+const App = ({demo = false}: PropsType) => {
 
     const status = useSelector<AppRootStateType, RequestStatusType>((state) => state.app.status);
     const isInitialized = useSelector<AppRootStateType, boolean>((state) => state.app.isInitialized);
@@ -41,7 +43,7 @@ function App({demo = false}: PropsType) {
 
 
     if (!isInitialized) {
-        return <div style={ {position: "fixed", top: '30%', textAlign: 'center', width: '100%'} }>
+        return <div style={{position: "fixed", top: '30%', textAlign: 'center', width: '100%'}}>
             <CircularProgress color="secondary"/>
         </div>
     }
@@ -71,9 +73,10 @@ function App({demo = false}: PropsType) {
                     <Redirect from={'*'} to={'/404'}/>
                 </Switch>
             </Container>
-
+            <Label/>
         </div>
     )
 }
+
 
 export default App

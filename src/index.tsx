@@ -7,13 +7,17 @@ import {Provider} from 'react-redux';
 import {store} from './app/store';
 import {BrowserRouter} from "react-router-dom";
 
+export const context = React.createContext(1);
+
 ReactDOM.render(
     <React.StrictMode>
+        <context.Provider value={1}>
         <Provider store={store}>
             <BrowserRouter>
             <App/>
             </BrowserRouter>
         </Provider>
+        </context.Provider>
     </React.StrictMode>,
     document.getElementById('root')
 );

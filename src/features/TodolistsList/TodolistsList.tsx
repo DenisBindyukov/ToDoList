@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from 'react'
+import React, {useCallback, useEffect, useMemo} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppRootStateType} from '../../app/store'
 import {
@@ -76,6 +76,10 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
     }, [dispatch])
 
 
+    let hello = useMemo(() => {
+        return 'Hello';
+    }, [])
+
     if (!isLoggedIn) {
         return <Redirect to={'/login'}/>
     }
@@ -110,3 +114,6 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
         </Grid>
     </>
 }
+
+
+

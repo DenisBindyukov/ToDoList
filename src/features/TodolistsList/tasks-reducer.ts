@@ -2,8 +2,10 @@ import {AddTodolistActionType, RemoveTodolistActionType, SetTodolistsActionType}
 import {TaskPriorities, TaskStatuses, TaskType, todolistsAPI, UpdateTaskModelType} from '../../api/todolists-api'
 import {Dispatch} from 'redux'
 import {AppRootStateType} from '../../app/store'
-import {setAppErrorAC, SetAppErrorActionType, setAppStatusAC, SetAppStatusActionType} from '../../app/app-reducer'
+import {SetAppErrorActionType, setAppStatusAC, SetAppStatusActionType} from '../../app/app-reducer'
 import {handleServerAppError, handleServerNetworkError} from '../../utils/error-utils'
+
+{}
 
 const initialState: TasksStateType = {}
 
@@ -82,6 +84,7 @@ export const addTaskTC = (title: string, todolistId: string) => (dispatch: Dispa
         .catch((error) => {
             handleServerNetworkError(error, dispatch)
         })
+
 }
 export const updateTaskTC = (taskId: string, domainModel: UpdateDomainTaskModelType, todolistId: string) =>
     (dispatch: ThunkDispatch, getState: () => AppRootStateType) => {
