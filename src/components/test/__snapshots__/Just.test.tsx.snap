@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Label should have render with props 1`] = `ShallowWrapper {}`;
